@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defne Restaurant Koblenz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #39D353;
+            --neon-glow: rgba(57, 211, 83, 0.5);
+            --card-bg: rgba(42, 26, 8, 0.95); /* Fast undurchsichtiges Braun */
+            --text-gold: #F0E6D2;
+            --divider-green: #2ea043;
+        }
+
+        body {
+            background-color: #050301;
+            /* Ein hochwertiges Hintergrundbild eines Grills/Ofens im Dunkeln */
+            background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-gold);
+        }
+
+        .bg-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.95));
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+
+        /* Der Karten-Stil */
+        .glow-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-glow), inset 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 16px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glow-card:hover {
+            box-shadow: 0 0 25px var(--neon-glow), inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .font-cinzel { font-family: 'Cinzel', serif; }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--divider-green), transparent);
+            margin: 1.5rem 0;
+            opacity: 0.6;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: white;
+            color: #1a1a1a;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        /* Image Grid */
+        .gallery-img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(57, 211, 83, 0.3);
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            border-color: var(--neon-green);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+    </style>
+</head>
+<body class="py-8 px-4">
+    <div class="bg-overlay"></div>
+
+    <!-- Main Container: Stacked Cards -->
+    <div class="w-full max-w-md mx-auto space-y-6">
+
+        <!-- 1. HERO / LOGO CARD -->
+        <header class="glow-card p-8 text-center relative overflow-hidden">
+            <!-- Decorative Glow Background inside card -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-green-500 rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+            
+            <div class="relative z-10">
+                <div class="inline-block relative mb-4">
+                    <h1 class="text-5xl sm:text-6xl font-cinzel text-white tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">DEFNE</h1>
+                    <!-- Blatt Icon -->
+                    <i class="fa-solid fa-leaf text-[#39D353] text-3xl absolute -right-6 -top-2 transform rotate-45 drop-shadow-md animate-pulse"></i>
+                </div>
+                
+                <div class="inline-flex items-center px-3 py-1 rounded-full border border-[#39D353]/50 bg-[#39D353]/10 mb-4">
+                    <span class="w-2 h-2 bg-[#39D353] rounded-full mr-2 animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest uppercase text-[#39D353]">Geöffnet</span>
+                </div>
+
+                <p class="text-[#F0E6D2] text-sm opacity-90 leading-relaxed font-light">
+                    Authentische mediterrane Küche.<br>
+                    Frisch. Herzhaft. Traditionell.
+                </p>
+            </div>
+        </header>
+
+        <!-- 2. INFO & KONTAKT CARD -->
+        <section class="glow-card p-6">
+            <h2 class="text-center font-cinzel text-2xl text-white mb-6 flex items-center justify-center gap-3">
+                <i class="fa-regular fa-clock text-[#39D353] text-lg"></i> Öffnungszeiten
+            </h2>
+            
+            <div class="space-y-3 text-sm sm:text-base">
+                <div class="flex justify-between border-b border-white/10 pb-2">
+                    <span class="text-white/70">Mo - Do & So</span>
+                    <span class="font-medium text-white">10:00 - 23:00</span>
+                </div>
+                <div class="flex justify-between border-b border-white/10 pb-2">
+                    <span class="text-white/70">Fr & Samstag</span>
+                    <span class="font-medium text-white">10:00 - 00:00</span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="text-center">
+                <p class="text-xl font-mono text-white mb-4 tracking-wide">0261 98887125</p>
+                <a href="tel:026198887125" class="btn-primary w-full py-3 flex items-center justify-center gap-2 text-lg no-underline">
+                    <i class="fa-solid fa-phone"></i>
+                    Jetzt anrufen
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. MENÜ HIGHLIGHTS CARD -->
+        <section class="glow-card p-6">
+            <h2 class="text-center font-cinzel text-2xl text-white mb-6 flex items-center justify-center gap-3">
+                <i class="fa-solid fa-utensils text-[#39D353] text-lg"></i> Speisekarte
+            </h2>
+            
+            <div class="space-y-4 mb-6">
+                <!-- Item 1 -->
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-white">Adana Kebap</h3>
+                        <p class="text-xs text-white/60">Scharfes Hackfleisch vom Grill mit Beilage</p>
+                    </div>
+                    <span class="font-mono text-[#39D353]">€16.50</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-white">Lammkoteletts</h3>
+                        <p class="text-xs text-white/60">Zartes Lamm mit gegrilltem Gemüse</p>
+                    </div>
+                    <span class="font-mono text-[#39D353]">€22.90</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-bold text-white">Gemischter Meze</h3>
+                        <p class="text-xs text-white/60">Auswahl an kalten Vorspeisen</p>
+                    </div>
+                    <span class="font-mono text-[#39D353]">€14.50</span>
+                </div>
+            </div>
+
+            <a href="#" class="btn-outline w-full py-2.5 flex items-center justify-center gap-2 text-sm uppercase tracking-wide">
+                <i class="fa-solid fa-book-open"></i>
+                Ganze Karte ansehen
+            </a>
+        </section>
+
+        <!-- 4. LIEFERUNG CARD -->
+        <section class="glow-card p-6 text-center">
+             <h2 class="text-center font-cinzel text-2xl text-white mb-2">Lieferung</h2>
+             <p class="text-xs text-white/60 mb-6">Genießen Sie Defne bequem zu Hause</p>
+
+             <div class="grid grid-cols-2 gap-4">
+                 <a href="#" class="bg-[#FF8000] text-white py-3 rounded-lg font-bold shadow-lg hover:brightness-110 transition flex flex-col items-center justify-center gap-1">
+                     <i class="fa-solid fa-bicycle text-lg"></i>
+                     <span>Lieferando</span>
+                 </a>
+                 <a href="#" class="bg-blue-600 text-white py-3 rounded-lg font-bold shadow-lg hover:brightness-110 transition flex flex-col items-center justify-center gap-1">
+                     <i class="fa-solid fa-bag-shopping text-lg"></i>
+                     <span>Abholung</span>
+                 </a>
+             </div>
+        </section>
+
+        <!-- 5. GALERIE CARD -->
+        <section class="glow-card p-6">
+            <h2 class="text-center font-cinzel text-2xl text-white mb-6 flex items-center justify-center gap-3">
+                <i class="fa-solid fa-camera text-[#39D353] text-lg"></i> Galerie
+            </h2>
+            <div class="grid grid-cols-2 gap-3">
+                <img src="https://images.unsplash.com/photo-1544025162-d76690b6d012?auto=format&fit=crop&w=300&q=80" alt="Grill" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=300&q=80" alt="Essen" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=300&q=80" alt="Ambiente" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=300&q=80" alt="Restaurant" class="gallery-img">
+            </div>
+        </section>
+
+        <!-- 6. LOCATION / FOOTER CARD -->
+        <section class="glow-card p-6 pb-8">
+            <h2 class="text-center font-cinzel text-2xl text-white mb-6 flex items-center justify-center gap-3">
+                <i class="fa-solid fa-location-dot text-[#39D353] text-lg"></i> Anfahrt
+            </h2>
+            
+            <p class="text-center text-[#F0E6D2] mb-4">
+                Wallersheimer Weg 9<br>
+                56070 Koblenz
+            </p>
+
+            <!-- Map Placeholder / Button -->
+            <a href="https://maps.google.com/?q=Wallersheimer+Weg+9+56070+Koblenz" target="_blank" class="block w-full h-32 bg-gray-800 rounded-lg relative overflow-hidden group border border-gray-700 hover:border-[#39D353] transition-colors">
+                <!-- Static Image simulating map -->
+                <img src="https://maps.googleapis.com/maps/api/staticmap?center=Koblenz&zoom=13&size=400x200&sensor=false&key=" onerror="this.src='https://placehold.co/400x200/2A1A08/39D353?text=Karte+laden'" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="btn-primary px-4 py-2 text-sm shadow-xl">
+                        <i class="fa-solid fa-map-pin mr-1"></i> Route starten
+                    </span>
+                </div>
+            </a>
+
+            <!-- Social Links -->
+            <div class="mt-8 flex justify-center gap-6">
+                <a href="#" class="text-white/60 hover:text-[#39D353] text-2xl transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-white/60 hover:text-[#39D353] text-2xl transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="text-white/60 hover:text-[#39D353] text-2xl transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <p class="text-center text-xs text-white/30 mt-6 font-light">
+                © 2025 Defne Restaurant
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>
